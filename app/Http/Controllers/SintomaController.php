@@ -41,7 +41,14 @@ class SintomaController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->all();
+         // dd($request);
+      // return $request->all();
+       $sintoma = new Sintoma;
+       $sintoma->name= $request->descripcion;
+      // dd($sintoma->descripcion);
+       $sintoma->save();
+       return redirect()->route('sintoma.index')->with('datos','registro guardado correctamente');
+
         //return view('sintomas.store');
     }
 
