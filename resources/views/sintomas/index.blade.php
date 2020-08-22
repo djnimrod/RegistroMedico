@@ -4,24 +4,35 @@
 @section('content')
 <div class="container">
 <div class="card">
+<div class="card-header">
+Sintomas 
+<a href="{{route('sintoma.create')}}" class="btn btn-outline-info ">Agregar Nuevo</a>
+</div>
 <div class="card-body">
-<p>Estoy en el index</p>
-<table>
+<div class = "table-responsive">
+<table class="table text-center">
 <thead>
 <tr>
-<td>id</td>
-<td>Descripcion</td>
-<td>Acciones</td>
+<th scope="col">id</th>
+<th scope="col">Descripcion</th>
+<th scope="col">Acciones</th>
 </tr>
 </thead>
 <tbody>
+@foreach ($Sintoma as $sintomaItem)
 <tr>
-<td>1</td>
-<td>uno</td>
-<td>Editar, eliminar</td>
+<td>{{$sintomaItem->id}}</td>
+<td>{{$sintomaItem->name}}</td>
+<td> 
+<a class="btn btn-success" href="{{route('sintoma.edit',$sintomaItem->id)}}">Editar</a>
+<a class="btn btn-danger" href="{{route('sintoma.destroy',$sintomaItem->id)}}">Eliminar</a>
+</td>
 </tr>
+@endforeach
 </tbody>
 </table>
+</div>
+
 </div>
 </div>
 </div>

@@ -17,7 +17,9 @@ class SintomaController extends Controller
      */
     public function index()
     {
-        return view('sintomas.create');
+        $Sintoma = Sintoma::all();
+        //dd($Sintoma);
+        return view('sintomas.index',['Sintoma' => $Sintoma]);
         //
     }
 
@@ -45,7 +47,6 @@ class SintomaController extends Controller
       // return $request->all();
        $sintoma = new Sintoma;
        $sintoma->name= $request->descripcion;
-      // dd($sintoma->descripcion);
        $sintoma->save();
        return redirect()->route('sintoma.index')->with('datos','registro guardado correctamente');
 
@@ -60,8 +61,8 @@ class SintomaController extends Controller
      */
     public function show($id)
     {
-        //
-        return view('sintomas.show');
+        $Sintoma = Sintoma::findOrFail($id);
+        return view('sintomas.show',compact('Sintoma'));
     }
 
     /**
@@ -72,8 +73,8 @@ class SintomaController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view('sintomas.edit');
+        $Sintoma = Sintoma::findOrFail($id);
+        return view('sintomas.edit',compact('Sintoma'));
     }
 
     /**
@@ -85,8 +86,10 @@ class SintomaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        return view('sintomas.update');
+        $Sintoma = Sintoma::findOrFail($id);
+        $Sintoma->name= $request->descripcion;
+        $Sintoma->save();
+        return redirect()->route('sintoma.index')->with('datos','registro actualisado correctamente');
     }
 
     /**
