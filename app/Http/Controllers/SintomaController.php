@@ -18,9 +18,7 @@ class SintomaController extends Controller
     public function index()
     {
         $Sintoma = Sintoma::all();
-        //dd($Sintoma);
-        return view('sintomas.index',['Sintoma' => $Sintoma]);
-        //
+        return view('sintomas.index',compact('Sintoma'));
     }
 
     /**
@@ -42,15 +40,10 @@ class SintomaController extends Controller
      */
     public function store(Request $request)
     {
-        //
-         // dd($request);
-      // return $request->all();
        $sintoma = new Sintoma;
        $sintoma->name= $request->descripcion;
        $sintoma->save();
        return redirect()->route('sintoma.index')->with('datos','registro guardado correctamente');
-
-        //return view('sintomas.store');
     }
 
     /**

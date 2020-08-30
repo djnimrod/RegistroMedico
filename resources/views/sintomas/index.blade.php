@@ -4,9 +4,15 @@
 @section('content')
 <div class="container">
 <div class="card">
+
+<div>
+{{$datos}} data
+</div>
+
+
 <div class="card-header">
 Sintomas 
-<a href="{{route('sintoma.create')}}" class="btn btn-outline-info ">Agregar Nuevo</a>
+<a href="{{route('sintoma.create')}}" class="btn btn-outline-info btn-sm float-right">Agregar Nuevo</a>
 </div>
 <div class="card-body">
 <div class = "table-responsive">
@@ -24,8 +30,8 @@ Sintomas
 <td>{{$sintomaItem->id}}</td>
 <td>{{$sintomaItem->name}}</td>
 <td> 
-<a class="btn btn-success" href="{{route('sintoma.edit',$sintomaItem->id)}}">Editar</a>
-<a class="btn btn-danger" href="{{route('sintoma.destroy',$sintomaItem->id)}}">Eliminar</a>
+<a class="btn btn-success btn-sm" href="{{route('sintoma.edit',$sintomaItem->id)}}">Editar</a>
+<a class="btn btn-danger btn-sm" href="{{route('sintoma.destroy',$sintomaItem->id)}}">Eliminar</a>
 </td>
 </tr>
 @endforeach
