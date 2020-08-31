@@ -15,7 +15,7 @@ Editando {{$Sintoma->name}}
            value={{$Sintoma->name}}>
           <small id="sintomaHelp" class="form-text text-muted">nombre del sintoma a modificar.</small>
       </div>
-      <a class="btn btn-outline-secondary btn-sm" href="{{route('sintoma.index')}}">cancelar</a>
+      <a class="btn btn-outline-secondary btn-sm" href="{{route('cancelar')}}">cancelar</a>
       <button class="btn btn-primary btn-sm" type="submit">guardar
       </button>
 </form>

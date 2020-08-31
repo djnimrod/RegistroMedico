@@ -18,4 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/cancelar',function(){
+    return redirect()->route('sintoma.index')->with('cancelar','accion cancelada');
+})->name('cancelar');
 Route::resource('sintoma','SintomaController');
+Route::get('/sintoma/{id}/confirm', 'SintomaController@confirm')->name('sintoma.confirm');

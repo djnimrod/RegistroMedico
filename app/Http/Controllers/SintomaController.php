@@ -7,9 +7,10 @@ use App\Sintoma;
 
 class SintomaController extends Controller
 {
-    // public function __contruct(){
-    //     this->middleware('auth') ;
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,7 @@ class SintomaController extends Controller
      */
     public function index()
     {
-        $Sintoma = Sintoma::all();
+        $Sintoma = Sintoma::paginate(5);
         return view('sintomas.index',compact('Sintoma'));
     }
 
@@ -93,7 +94,13 @@ class SintomaController extends Controller
      */
     public function destroy($id)
     {
-        //
-        return view('sintomas.destroy');
+        $Sintoma = Sintoma::findOrFail($id);
+        $Sintoma->delete();
+        return redirect()->route('sintoma.index')->with('datos','registro eliminado correctamente');
+    }
+
+    public function confirm($id){
+        $Sintoma = Sintoma::findOrFail($id);
+        return view('sintomas.confirm',compact('Sintoma'));
     }
 }
