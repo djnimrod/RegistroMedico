@@ -12,7 +12,7 @@ Editando {{$Sintoma->name}}
       <div class="form-group">
            <label for="sintoma">Descripcion</label>
            <input type="text" class="form-control" id="sintoma" aria-describedby="sintomaHelp" placeholder="sintoma" name="descripcion" 
-           value = "{{$Sintoma->name}}">
+           value={{$Sintoma->name}}>
           <small id="sintomaHelp" class="form-text text-muted">nombre del sintoma a modificar.</small>
       </div>
       <a class="btn btn-outline-secondary btn-sm" href="{{route('cancelar')}}">cancelar</a>

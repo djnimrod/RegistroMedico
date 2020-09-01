@@ -14,7 +14,7 @@ class UvController extends Controller
     public function index()
     {
         $Uv = Uv::paginate(5);
-        return view('uv.index',compact('Uv'));
+        return view('Uv.index',compact('Uv'));
     }
 
     /**
@@ -24,7 +24,7 @@ class UvController extends Controller
      */
     public function create()
     {
-        return view('Uv.create');
+        return view('uv.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class UvController extends Controller
         $Uv = new Uv;
         $Uv->name = $request->descripcion;
         $Uv->save();
-        redirect()->route('Uv.index')->with('datos','registro creado exitosamente');
+        redirect()->route('uv.index')->with('datos','registro creado exitosamente');
     }
 
     /**
@@ -60,8 +60,8 @@ class UvController extends Controller
      */
     public function edit($id)
     {
-        $Uv = Sintoma::findOrFail($id);
-        return view('Uv.edit',compact('Uv'));
+        $Uv = Uv::findOrFail($id);
+        return view('uv.edit',compact('Uv'));
     }
 
     /**

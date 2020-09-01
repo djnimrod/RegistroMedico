@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Localidad;
 class LocalidadController extends Controller
 {
     /**
@@ -13,7 +13,9 @@ class LocalidadController extends Controller
      */
     public function index()
     {
-        //
+        $Localidad = Localidad::paginate(5);
+     //   dd($Localidad);
+        return view('localidades.index',compact('Localidad'));
     }
 
     /**
@@ -23,7 +25,7 @@ class LocalidadController extends Controller
      */
     public function create()
     {
-        //
+        return view('localidades.create');
     }
 
     /**
@@ -34,7 +36,10 @@ class LocalidadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Localidad = new Localidad;
+        $Localidad->name = $request->descripcion;
+        $Localidad->save();
+        redirect()->route('localidad.index')->with('datos','localidad creada exitosamente');
     }
 
     /**
@@ -56,7 +61,8 @@ class LocalidadController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Localidad = Localidad::findOrFail($id);
+        return view('localidades.edit',compact('Localidad'));
     }
 
     /**
@@ -68,7 +74,10 @@ class LocalidadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $Localidad = findOrFail($id);
+       $Localidad->name = $request->descripcion;
+       $Localidad->save();
+       redirect()->route('localidad.index')->with('datos','localidad modificada exitosamente');
     }
 
     /**
@@ -79,6 +88,13 @@ class LocalidadController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Localidad = Localidad::findOrFail($id);
+        $Localidad->delete();
+        return redirect()->route('localidad.index')->with('datos','Localidad eliminada correctamente');
+    }
+
+    public function confirm($id){
+        $Localidad = Localidad::findOrFail($id);
+        return view('localidades.confirm',compact('Localidad'));
     }
 }
