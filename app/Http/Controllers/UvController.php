@@ -13,7 +13,8 @@ class UvController extends Controller
      */
     public function index()
     {
-        //
+        $Uv = Uv::paginate(5);
+        return view('uv.index',compact('Uv'));
     }
 
     /**
@@ -23,7 +24,7 @@ class UvController extends Controller
      */
     public function create()
     {
-        //
+        return view('Uv.create');
     }
 
     /**
@@ -34,7 +35,10 @@ class UvController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Uv = new Uv;
+        $Uv->name = $request->descripcion;
+        $Uv->save();
+        redirect()->route('Uv.index')->with('datos','registro creado exitosamente');
     }
 
     /**
@@ -56,7 +60,8 @@ class UvController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Uv = Sintoma::findOrFail($id);
+        return view('Uv.edit',compact('Uv'));
     }
 
     /**
@@ -68,7 +73,10 @@ class UvController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Uv = Uv::findOrFail($id);
+        $Uv->name= $request->descripcion;
+        $Uv->save();
+        return redirect()->route('uv.index')->with('datos','registro modificado correctamente');
     }
 
     /**
@@ -79,6 +87,13 @@ class UvController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Uv = Uv::findOrFail($id);
+        $Uv->delete();
+        return redirect()->route('uv.index')->with('datos','registro eliminado correctamente');
+    }
+
+    public function confirm($id){
+        $Uv = Uv::findOrFail($id);
+        return view('uv.confirm',compact('Uv'));
     }
 }
