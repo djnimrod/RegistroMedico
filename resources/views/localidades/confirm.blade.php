@@ -11,5 +11,4 @@
       <button class="btn btn-danger btn-sm" type="submit">Eliminar
       </button>
 </form>
-{{$Localidad}}
 @endsection

@@ -39,7 +39,7 @@ class LocalidadController extends Controller
         $Localidad = new Localidad;
         $Localidad->name = $request->descripcion;
         $Localidad->save();
-        redirect()->route('localidad.index')->with('datos','localidad creada exitosamente');
+        return redirect()->route('localidad.index')->with('datosLocalidad','localidad creada exitosamente');
     }
 
     /**
