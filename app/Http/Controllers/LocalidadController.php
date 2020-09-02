@@ -74,10 +74,10 @@ class LocalidadController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $Localidad = findOrFail($id);
+       $Localidad = Localidad::findOrFail($id);
        $Localidad->name = $request->descripcion;
        $Localidad->save();
-       redirect()->route('localidad.index')->with('datos','localidad modificada exitosamente');
+       return redirect()->route('localidad.index')->with('datosLocalidad','registro modificado correctamente');
     }
 
     /**

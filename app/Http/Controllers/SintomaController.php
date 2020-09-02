@@ -83,7 +83,7 @@ class SintomaController extends Controller
         $Sintoma = Sintoma::findOrFail($id);
         $Sintoma->name= $request->descripcion;
         $Sintoma->save();
-        return redirect()->route('sintoma.index')->with('datos','registro actualisado correctamente');
+        return redirect()->route('sintoma.index')->with('datos','registro modificado correctamente');
     }
 
     /**
