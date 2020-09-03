@@ -26,7 +26,7 @@ Route::resource('sintoma','SintomaController');
 Route::get('/sintoma/{id}/confirm', 'SintomaController@confirm')->name('sintoma.confirm');
 //uv
 Route::get('/cancelaruv',function(){
-    return redirect()->route('uv.index')->with('cancelarUv','accion cancelada');
+    return redirect()->route('uv.index')->with('cancelaruv','accion cancelada');
 })->name('cancelaruv');
 Route::resource('uv','UvController');
 Route::get('/uv/{id}/confirm', 'UvController@confirm')->name('uv.confirm');

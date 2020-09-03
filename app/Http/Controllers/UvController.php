@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Uv;
 
 class UvController extends Controller
 {
@@ -24,7 +25,7 @@ class UvController extends Controller
      */
     public function create()
     {
-        return view('uv.create');
+        return view('Uv.create');
     }
 
     /**
@@ -38,7 +39,7 @@ class UvController extends Controller
         $Uv = new Uv;
         $Uv->name = $request->descripcion;
         $Uv->save();
-        redirect()->route('uv.index')->with('datos','registro creado exitosamente');
+        return redirect()->route('uv.index')->with('datosuv','registro creado exitosamente');
     }
 
     /**
@@ -76,7 +77,7 @@ class UvController extends Controller
         $Uv = Uv::findOrFail($id);
         $Uv->name= $request->descripcion;
         $Uv->save();
-        return redirect()->route('uv.index')->with('datos','registro modificado correctamente');
+        return redirect()->route('uv.index')->with('datosuv','registro modificado correctamente');
     }
 
     /**
@@ -89,7 +90,7 @@ class UvController extends Controller
     {
         $Uv = Uv::findOrFail($id);
         $Uv->delete();
-        return redirect()->route('uv.index')->with('datos','registro eliminado correctamente');
+        return redirect()->route('uv.index')->with('datosuv','registro eliminado correctamente');
     }
 
     public function confirm($id){

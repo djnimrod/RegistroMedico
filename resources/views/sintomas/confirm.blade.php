@@ -4,6 +4,7 @@
 <div class="container p-5">
 <h1>Desea eliminar el registro {{$Sintoma->name}}?</h1>
 </div>
+<div class="container p-5">
 <form action="{{route('sintoma.destroy',$Sintoma->id)}}" method= "POST">
 @method('DELETE')
       @csrf
@@ -11,5 +12,5 @@
       <button class="btn btn-danger btn-sm" type="submit">Eliminar
       </button>
 </form>
-{{$Sintoma}}
+</div>
 @endsection
