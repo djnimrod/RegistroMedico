@@ -36,3 +36,9 @@ Route::get('/cancelarlocalidad',function(){
 })->name('cancelarlocalidad');
 Route::resource('localidad','LocalidadController');
 Route::get('/localidad/{id}/confirm', 'LocalidadController@confirm')->name('localidad.confirm');
+// Enfermedades
+Route::get('/cancelarenfermedad',function(){
+    return redirect()->route('enfermedad.index')->with('cancelarenfermedad','accion cancelada');
+})->name('cancelarenfermedad');
+Route::resource('enfermedad','EnfermedadController');
+Route::get('/enfermedad/{id}/confirm', 'EnfermedadController@confirm')->name('enfermedad.confirm');

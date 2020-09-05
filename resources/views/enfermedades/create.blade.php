@@ -5,12 +5,12 @@
 <div class="container">
 <div class="card">
 <div class="card-body">
-<form action="{{route('sintoma.store')}}" method= "POST">
+<form action="{{route('enfermedad.store')}}" method= "POST">
       @csrf
       <div class="form-group">
-           <label for="sintoma">Descripcion</label>
-           <input type="text" class="form-control" id="sintoma" aria-describedby="sintomHelp" placeholder="sintoma" name="descripcion">
-          <small id="sintomaHelp" class="form-text text-muted">nombre del sintoma a registrar.</small>
+           <label for="enfermedad">Descripcion</label>
+           <input type="text" class="form-control" id="enfermedad" aria-describedby="EnfermedadHelp" placeholder="enfermedad" name="descripcion">
+          <small id="enfermedadHelp" class="form-text text-muted">nombre de la enfermedad a registrar.</small>
       </div>
       <button class="btn btn-primary" type="submit">Enviar
       </button>

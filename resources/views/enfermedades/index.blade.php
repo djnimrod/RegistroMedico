@@ -4,16 +4,16 @@
 @section('titulo','Inicio')
 @section('content')
 <div class="container">
-@if(session('datos'))
+@if(session('datosenfermedad'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-{{session('datos')}}
+{{session('datosenfermedad')}}
 <button class="close" type="button" data-dismiss="alert" aria-label="close" >
 <span aria-hidden="true">&times;</span></button>
 </div>
 @endif
-@if(session('cancelar'))
+@if(session('cancelarenfermedad'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-{{session('cancelar')}}
+{{session('cancelarenfermedad')}}
 <button class="close" type="button" data-dismiss="alert" aria-label="close" >
 <span aria-hidden="true">&times;</span></button>
 </div>
@@ -21,8 +21,8 @@
 
 <div class="card">
 <div class="card-header">
-Sintomas 
-<a href="{{route('sintoma.create')}}" class="btn btn-outline-info btn-sm float-right">Agregar Nuevo</a>
+Enfermedades 
+<a href="{{route('enfermedad.create')}}" class="btn btn-outline-info btn-sm float-right">Agregar Nuevo</a>
 </div>
 <div class="card-body">
 <div class = "table-responsive">
@@ -35,13 +35,13 @@ Sintomas
 </tr>
 </thead>
 <tbody>
-@foreach ($Sintoma as $sintomaItem)
+@foreach ($Enfermedad as $enfermedadItem)
 <tr>
-<td>{{$sintomaItem->id}}</td>
-<td>{{$sintomaItem->name}}</td>
+<td>{{$enfermedadItem->id}}</td>
+<td>{{$enfermedadItem->name}}</td>
 <td> 
-<a class="btn btn-success btn-sm" href="{{route('sintoma.edit',$sintomaItem->id)}}">Editar</a>
-<a class="btn btn-danger btn-sm" href="{{route('sintoma.confirm',$sintomaItem->id)}}">Eliminar</a>
+<a class="btn btn-success btn-sm" href="{{route('enfermedad.edit',$enfermedadItem->id)}}">Editar</a>
+<a class="btn btn-danger btn-sm" href="{{route('enfermedad.confirm',$enfermedadItem->id)}}">Eliminar</a>
 </td>
 </tr>
 @endforeach
@@ -50,7 +50,7 @@ Sintomas
 </div>
 
 </div>
-{{$Sintoma->links()}}
+{{$Enfermedad->links()}}
 </div>
 </div>
 

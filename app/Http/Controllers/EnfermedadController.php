@@ -18,8 +18,8 @@ class EnfermedadController extends Controller
      */
     public function index()
     {
-        $Enfermedades = Enfermedads::paginate(5);
-        return view('enfermedades.index',compact('Enfermedades'));
+        $Enfermedad = Enfermedad::paginate(5);
+        return view('enfermedades.index',compact('Enfermedad'));
     }
 
     /**
@@ -43,7 +43,7 @@ class EnfermedadController extends Controller
        $enfermedad = new Enfermedad;
        $enfermedad->name= $request->descripcion;
        $enfermedad->save();
-       return redirect()->route('enfermedades.index')->with('datos','registro guardado correctamente');
+       return redirect()->route('enfermedad.index')->with('datosenfermedad','registro guardado correctamente');
         //
     }
 
@@ -66,8 +66,8 @@ class EnfermedadController extends Controller
      */
     public function edit($id)
     {
-        $enfermedades = Enfermedads::findOrFail($id);
-        return view('enfermedades.edit',compact('enfermedades'));
+        $Enfermedad = Enfermedad::findOrFail($id);
+        return view('enfermedades.edit',compact('Enfermedad'));
     }
 
     /**
@@ -79,10 +79,10 @@ class EnfermedadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Enfermedad = Enfermedads::findOrFail($id);
+        $Enfermedad = Enfermedad::findOrFail($id);
         $Enfermedad->name= $request->descripcion;
         $Enfermedad->save();
-        return redirect()->route('enfermedades.index')->with('datos','registro actualisado correctamente');
+        return redirect()->route('enfermedad.index')->with('datosenfermedad','registro modificado correctamente');
     }
 
     /**
@@ -93,13 +93,13 @@ class EnfermedadController extends Controller
      */
     public function destroy($id)
     {
-        $Enfermedad = Enfermedads::findOrFail($id);
+        $Enfermedad = Enfermedad::findOrFail($id);
         $Enfermedad->delete();
-        return redirect()->route('enfermedades.index')->with('datos','registro eliminado correctamente');
+        return redirect()->route('enfermedades.index')->with('datosenfermedad','registro eliminado correctamente');
     }
 
     public function confirm($id){
-        $Enfermedad = Enfermedads::findOrFail($id);
+        $Enfermedad = Enfermedad::findOrFail($id);
         return view('enfermedades.confirm',compact('Enfermedad'));
     }
 }

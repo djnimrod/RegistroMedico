@@ -2,14 +2,15 @@
 @section('titulo','confirme la eliminacion')
 @section('content')
 <div class="container p-5">
-<h1>Desea eliminar el registro {{$Sintoma->name}}?</h1>
+<h1>Desea eliminar el registro {{$Enfermedad->name}}?</h1>
 </div>
-<form action="{{route('sintoma.destroy',$Sintoma->id)}}" method= "POST">
+<div class="container p-5">
+<form action="{{route('enfermedad.destroy',$Enfermedad->id)}}" method= "POST">
 @method('DELETE')
       @csrf
-      <a class="btn btn-outline-secondary btn-sm" href="{{route('cancelar')}}">cancelar</a>
+      <a class="btn btn-outline-secondary btn-sm" href="{{route('cancelarenfermedad')}}">cancelar</a>
       <button class="btn btn-danger btn-sm" type="submit">Eliminar
       </button>
 </form>
-{{$Sintoma}}
+</div>
 @endsection
