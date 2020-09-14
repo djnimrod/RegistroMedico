@@ -53,6 +53,7 @@
     </div>
     <div class="card-body">
     <span>Formulario</span>
+	<div class="card"></div>
          <div class="card">
                <div class="card-header">Persona</div>
                <div class="card-body">
