@@ -17,8 +17,8 @@ class CreatePersonaSintoma extends Migration
             $table->bigIncrements('persona_id')->unsigned();
             $table->bigIncrements('sintoma_id')->unsigned();
         
-            $table->foreign('persona_id')->references('id')->on('personas');
-            $table->foreign('sintoma_id')->references('id')->on('sintomas');
+            $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
+            $table->foreign('sintoma_id')->references('id')->on('sintomas')->onDelete('cascade');
         });
     }
 
