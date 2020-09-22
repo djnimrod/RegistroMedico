@@ -42,3 +42,9 @@ Route::get('/cancelarenfermedad',function(){
 })->name('cancelarenfermedad');
 Route::resource('enfermedad','EnfermedadController');
 Route::get('/enfermedad/{id}/confirm', 'EnfermedadController@confirm')->name('enfermedad.confirm');
+// Personas
+Route::get('/cancelarpersona',function(){
+    return redirect()->route('persona.index')->with('cancelarpersona','accion cancelada');
+})->name('cancelarpersona');
+Route::resource('persona','PersonaController');
+Route::get('/persona/{id}/confirm', 'PersonaController@confirm')->name('persona.confirm');
