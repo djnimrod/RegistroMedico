@@ -14,8 +14,8 @@ class CreateEnfermedadPersona extends Migration
     public function up()
     {
         Schema::create('enfermedad_persona', function (Blueprint $table) {
-            $table->bigIncrements('enfermedad_id')->unsigned();
-            $table->bigIncrements('persona_id')->unsigned();
+            $table->bigInteger('enfermedad_id')->unsigned();
+            $table->bigInteger('persona_id')->unsigned();
         
             $table->foreign('enfermedad_id')->references('id')->on('enfermedads');
             $table->foreign('persona_id')->references('id')->on('personas');

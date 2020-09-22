@@ -14,10 +14,12 @@ class CreatePersonaSintoma extends Migration
     public function up()
     {
         Schema::create('persona_sintoma', function (Blueprint $table) {
-            $table->bigIncrements('persona_id')->unsigned();
-            $table->bigIncrements('sintoma_id')->unsigned();
+            $table->bigInteger('persona_id')->unsigned();
+            
         
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
+
+            $table->bigInteger('sintoma_id')->unsigned();
             $table->foreign('sintoma_id')->references('id')->on('sintomas')->onDelete('cascade');
         });
     }
