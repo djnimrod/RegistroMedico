@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Persona;
 
 class PersonaController extends Controller
 {
+
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        //
+        $Persona = Persona::paginate(5);
+        return view('personas.index', compact('Persona'));
     }
 
     /**
@@ -24,6 +32,7 @@ class PersonaController extends Controller
     public function create()
     {
         //
+        return view('personas.create');
     }
 
     /**
@@ -35,6 +44,14 @@ class PersonaController extends Controller
     public function store(Request $request)
     {
         //
+       $persona = new Persona;
+       $persona->nombres= $request->nombres;
+       $persona->apellidos= $request->apellidos;
+       $persona->sexo= $request->sexo;
+       $persona->telefono= $request->telefono;
+       $persona->fechaNacimiento= $request->fechaNacimiento;
+       $persona->save();
+       return redirect()->route('persona.index')->with('datosPersona','registro guardado correctamente');
     }
 
     /**

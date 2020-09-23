@@ -21,7 +21,7 @@
 
 <div class="card">
 <div class="card-header">
-Sintomas 
+Personas 
 <a href="{{route('persona.create')}}" class="btn btn-outline-info btn-sm float-right">Agregar Nuevo</a>
 </div>
 <div class="card-body">
