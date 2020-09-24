@@ -18,9 +18,13 @@
           <small id="apellidosHelp" class="form-text text-muted">apellidos de la persona a registrar.</small>
       </div>
       <div class="form-group">
-           <label for="sexo">Sexo</label>
-           <input type="text" class="form-control" id="sexo" aria-describedby="sexoHelp" placeholder="sexo" name="sexo">
+      <label for="clase">Sexo:</label>
+      <div class="form-control h-auto">
+      <input type="radio" name="sexo" id="sexo" value="masculino" checked> <span> Masculino</span>  <br>
+            <input type="radio" name="sexo" id="sexo" value="femenino"> <span> Femenino </span><br>
+      </div>
           <small id="sexoHelp" class="form-text text-muted">sexo de la persona a registrar.</small>
+
       </div>
       <div class="form-group">
            <label for="telefono">Telefono</label>

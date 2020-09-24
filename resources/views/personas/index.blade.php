@@ -4,16 +4,16 @@
 @section('titulo','Inicio')
 @section('content')
 <div class="container">
-@if(session('datos'))
+@if(session('datosPersona'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
-{{session('datos')}}
+{{session('datosPersona')}}
 <button class="close" type="button" data-dismiss="alert" aria-label="close" >
 <span aria-hidden="true">&times;</span></button>
 </div>
 @endif
-@if(session('cancelar'))
+@if(session('cancelarpersona'))
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-{{session('cancelar')}}
+{{session('cancelarpersona')}}
 <button class="close" type="button" data-dismiss="alert" aria-label="close" >
 <span aria-hidden="true">&times;</span></button>
 </div>
@@ -35,6 +35,7 @@ Personas
 <th scope="col">Sexo</th>
 <th scope="col">Telefono</th>
 <th scope="col">Fecha de Nacimiento</th>
+<th scope="col">Acciones</th>
 </tr>
 </thead>
 <tbody>

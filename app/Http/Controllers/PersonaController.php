@@ -44,6 +44,7 @@ class PersonaController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
        $persona = new Persona;
        $persona->nombres= $request->nombres;
        $persona->apellidos= $request->apellidos;
@@ -74,6 +75,9 @@ class PersonaController extends Controller
     public function edit($id)
     {
         //
+        $Persona = Persona::findOrFail($id);
+        //dd($Persona);
+        return view('personas.edit',compact('Persona'));
     }
 
     /**
@@ -86,6 +90,14 @@ class PersonaController extends Controller
     public function update(Request $request, $id)
     {
         //
+       $Persona = Persona::findOrFail($id);
+       $Persona->nombres= $request->nombres;
+       $Persona->apellidos= $request->apellidos;
+       $Persona->sexo= $request->sexo;
+       $Persona->telefono= $request->telefono;
+       $Persona->fechaNacimiento= $request->fechaNacimiento;
+       $Persona->save();
+       return redirect()->route('persona.index')->with('datosPersona','Persona modificado correctamente');
     }
 
     /**
